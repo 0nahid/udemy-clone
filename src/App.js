@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Course from './components/Course/Course';
 
 function App() {
+  const [course, setCourse] = useState([]);
+  useEffect(() => {
+    fetch('https://mocki.io/v1/e598cb62-d43c-448a-bf26-456d5dc64509')
+      .then(res => res.json())
+      .then(data => setCourse(data))
+      .catch(err => console.log(err))
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {course.map(course => <Course course={course} key={course.tracking_id} ></Course>)}
     </div>
   );
 }
