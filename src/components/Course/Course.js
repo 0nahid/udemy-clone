@@ -1,25 +1,29 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Card, Button, Container, Row, Col, CardGroup } from 'react-bootstrap';
 
 const Course = (props) => {
     const { title, price, visible_instructors: { display_name: instructor }, image_480x270: img, } = props.course;
+    const handleAddProduct = props.handleAddProduct;
     return (
-        <div>
-            <Container>
-                <Row>
-                    <div className="col-md-9">
-                        <img src={img} className="img-fluid" alt="" />
-                        <h1>{title}</h1>
-                        <p><small>By : {instructor} </small></p>
-                        <p>{price}</p>
-                    </div>
-                    <div className="col-md-3">
+        <Container>
+            <Row>
+                <Col lg="4">
+                    <Card>
+                        <Card.Img variant="top" className="img-fluid" src={img} />
+                        <Card.Body>
+                            <Card.Title>{title}</Card.Title>
+                            <Card.Text>
+                                <p><small>By : {instructor} </small></p>
+                                <p>{price}</p>
+                            </Card.Text>
+                            <Button onClick={() => handleAddProduct(props.course)} variant="primary">Add to Cart</Button>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
 
-                    </div>
-                </Row>
-            </Container>
-        </div>
     );
 };
 
-export default Course;
+export default Course; 
