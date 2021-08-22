@@ -1,7 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
+import { Row, Col, Container } from 'react-bootstrap';
 import './App.css';
 import Course from './components/Course/Course';
+import Header from './components/Header/Header';
 
 function App() {
   const [course, setCourse] = useState([]);
@@ -18,10 +20,21 @@ function App() {
     setCart(newCart);
   }
   return (
-    <div>
-      {course.map(course => <Course course={course} key={course.tracking_id} handleAddProduct={handleAddProduct} ></Course>)}
-    </div>
-    
+    <Container>
+      <Header></Header>
+      <Row>
+        <Col md={4}></Col>
+        <Col md={4}></Col>
+        <Col md={4}>
+          <h1> Order Summary </h1>
+        </Col>
+      </Row>
+      {course.map(course =>
+        <Course course={course}
+          key={course.tracking_id}
+          handleAddProduct={handleAddProduct}
+        ></Course>)}
+    </Container>
   );
 }
 
