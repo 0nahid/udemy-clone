@@ -26,7 +26,7 @@ function App() {
         <Col md={4}></Col>
         <Col md={4}></Col>
         <Col md={4}>
-          <h1> Order Summary </h1>
+          <h1> Order Summary :   </h1>
         </Col>
       </Row>
       {course.map(course =>

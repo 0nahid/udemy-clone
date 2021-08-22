@@ -1,15 +1,17 @@
 import React from 'react';
-import { Navbar, Container } from 'react-bootstrap';
+import { Nav, Navbar, Container } from 'react-bootstrap';
 const Header = () => {
     return (
-        <Navbar>
+        <Navbar collapseOnSelect expand="lg" >
             <Container>
-                <Navbar.Brand href="/">Udemy Clone</Navbar.Brand>
-                <Navbar.Toggle />
-                <Navbar.Collapse className="justify-content-end">
-                    <Navbar.Text>
-                        Signed in as: <a href="#login">Mark Otto</a>
-                    </Navbar.Text>
+                <Navbar.Brand href="#home">  Udemy Clone</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="ms-auto">
+                        <Nav.Link href="#features">Features</Nav.Link>
+                        <Nav.Link href="/pricing">Pricing</Nav.Link>
+                        <Nav.Link href="/learning">My Learning</Nav.Link>
+                    </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
