@@ -2,6 +2,7 @@ import React from 'react';
 // eslint-disable-next-line
 import { Container, Col, Card, Row, ListGroup, Button, ListGroupItem } from 'react-bootstrap';
 
+
 const Course = (props) => {
     // eslint-disable-next-line
     const { title, price, visible_instructors: { display_name: instructor }, image_480x270: img, headline, } = props.course;
@@ -19,23 +20,12 @@ const Course = (props) => {
                         <ListGroup className="list-group-flush">
                             <ListGroupItem> <small>Course By : </small>{instructor}</ListGroupItem>
                             <ListGroupItem> <span style={{ color: 'red', fontWeight: 'bold', fontSize: '18px' }}>{price}</span> </ListGroupItem>
-                            <Button variant="primary" onClick={() => handleAddProduct(props.course)} >Add to Cart</Button>
+                            <Button variant="primary" onClick={() => handleAddProduct(props.course) }  >Add to Cart</Button>
                         </ListGroup>
                     </Card>
                 </Col>
             </Row>
         </Container>
-
-        // simple method
-        // <div>
-        //     <div className="course-details">
-        //         <img src={img} className="img-fluid" alt="" />
-        //         <h1>{title}</h1>
-        //         <p><small>By : {instructor} </small></p>
-        //         <p>{price}</p>
-        //         <button onClick={() => handleAddProduct(props.course)} className="btn btn-success">Add to cart</button>
-        //     </div>
-        // </div>
     );
 };
 
