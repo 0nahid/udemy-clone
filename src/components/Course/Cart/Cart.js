@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Cart = (props) => {
-    console.log(props);
+    const cart = props.cart;
+    console.log(cart);
     return (
         <div>
-            Item ordered : ----
+            Item ordered :{cart.length}
         </div>
     );
 };
-
 export default Cart;

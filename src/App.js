@@ -17,8 +17,8 @@ function App() {
       .catch(err => console.log(err))
   }, []);
   const handleAddProduct = (product) => {
-    console.log('added', product);
-    const newCart = { ...cart, product };
+    // console.log('added', product);
+    const newCart = [...cart, product];
     setCart(newCart);
   }
   return (
@@ -28,7 +28,7 @@ function App() {
         <Col md={4}></Col>
         <Col md={4}></Col>
         <Col md={4}>
-         <Cart></Cart>
+          <Cart cart={cart} ></Cart>
         </Col>
       </Row>
       {course.map(course =>
