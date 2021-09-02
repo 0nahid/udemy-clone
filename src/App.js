@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import './App.css';
-import Cart from './components/Course/Cart/Cart';
+import Cart from './components/Cart/Cart';
 import Course from './components/Course/Course';
 import Header from './components/Header/Header';
 
@@ -24,9 +24,9 @@ function App() {
     <Container>
       <Header></Header>
       <Row>
+        <Col md={3}></Col>
         <Col md={4}></Col>
-        <Col md={4}></Col>
-        <Col md={4}>
+        <Col md={5}>
           <Cart cart={cart} ></Cart>
         </Col>
       </Row>
