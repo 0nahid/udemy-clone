@@ -6,7 +6,6 @@ import Cart from './components/Course/Cart/Cart';
 import Course from './components/Course/Course';
 import Header from './components/Header/Header';
 
-
 function App() {
   const [course, setCourse] = useState([]);
   const [cart, setCart] = useState([]);

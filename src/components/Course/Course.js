@@ -5,7 +5,8 @@ import { Container, Col, Card, Row, ListGroup, Button, ListGroupItem } from 'rea
 
 const Course = (props) => {
     // eslint-disable-next-line
-    const { title, price, visible_instructors: { display_name: instructor }, image_480x270: img, headline, } = props.course;
+    const { title, visible_instructors: { display_name: instructor }, image_480x270: img, headline, price_detail:{amount:item_price} } = props.course;
+
     const handleAddProduct = props.handleAddProduct;
     return (
         <Container>
@@ -19,8 +20,8 @@ const Course = (props) => {
                         </Card.Body>
                         <ListGroup className="list-group-flush">
                             <ListGroupItem> <small>Course By : </small>{instructor}</ListGroupItem>
-                            <ListGroupItem> <span style={{ color: 'red', fontWeight: 'bold', fontSize: '18px' }}>{price}</span> </ListGroupItem>
-                            <Button variant="primary" onClick={() => handleAddProduct(props.course) }  >Add to Cart</Button>
+                            <ListGroupItem> <span style={{ color: 'red', fontWeight: 'bold', fontSize: '18px' }}> ${item_price}</span> </ListGroupItem>
+                            <Button variant="primary" onClick={() => handleAddProduct(props.course)}  >Add to Cart</Button>
                         </ListGroup>
                     </Card>
                 </Col>
