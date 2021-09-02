@@ -4,6 +4,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 import './App.css';
 import Cart from './components/Cart/Cart';
 import Course from './components/Course/Course';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 
 function App() {
@@ -21,21 +22,24 @@ function App() {
     setCart(newCart);
   }
   return (
-    <Container>
-      <Header></Header>
-      <Row>
-        <Col md={3}></Col>
-        <Col md={4}></Col>
-        <Col md={5}>
-          <Cart cart={cart} ></Cart>
-        </Col>
-      </Row>
-      {course.map(course =>
-        <Course course={course}
-          key={course.tracking_id}
-          handleAddProduct={handleAddProduct}
-        ></Course>)}
-    </Container>
+    <div>
+      <Container>
+        <Header></Header>
+        <Row>
+          <Col md={3}></Col>
+          <Col md={4}></Col>
+          <Col md={5}>
+            <Cart cart={cart} ></Cart>
+          </Col>
+        </Row>
+        {course.map(course =>
+          <Course course={course}
+            key={course.tracking_id}
+            handleAddProduct={handleAddProduct}
+          ></Course>)}
+      </Container>
+      <Footer></Footer>
+    </div>
   );
 }
 
